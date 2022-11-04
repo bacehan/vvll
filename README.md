@@ -46,15 +46,15 @@ addEventListener(
 
 可以使用cloudflare的pages来`中转流量`，配置为： 
 
-export default {
-&emsp;&emsp;async fetch(request, env) {
-&emsp;&emsp;&emsp;let url = new URL(request.url);
-&emsp;&emsp;&emsp;if (url.pathname.startsWith('/')) {
-&emsp;&emsp;&emsp;&emsp;url.hostname="example.com";
-&emsp;&emsp;&emsp;&emsp;let new_request=new Request(url,request);
-&emsp;&emsp;&emsp;&emsp;return fetch(new_request);
-&emsp;&emsp;&emsp;}
-&emsp;&emsp;&emsp;// Otherwise, serve the static assets.
-&emsp;&emsp;&emsp;return env.ASSETS.fetch(request);
-&emsp;&emsp;}
-};
+export default {  
+&emsp;&emsp;async fetch(request, env) {  
+&emsp;&emsp;&emsp;let url = new URL(request.url);  
+&emsp;&emsp;&emsp;if (url.pathname.startsWith('/')) {  
+&emsp;&emsp;&emsp;&emsp;url.hostname="example.com";  
+&emsp;&emsp;&emsp;&emsp;let new_request=new Request(url,request);  
+&emsp;&emsp;&emsp;&emsp;return fetch(new_request);  
+&emsp;&emsp;&emsp;}  
+&emsp;&emsp;&emsp;// Otherwise, serve the static assets.  
+&emsp;&emsp;&emsp;return env.ASSETS.fetch(request);  
+&emsp;&emsp;}  
+};  
